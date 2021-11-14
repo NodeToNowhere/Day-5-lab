@@ -113,18 +113,34 @@ def get_pets_by_breed(pet_shop, breed):
             pets.append(breed)
     return pets
 
-def find_pet_by_name(pet_shop, name):  #This is driving me insane. I keep getting all kinds of errors trying to return None.... Hours... fml 
+ #hours and hours of issues with find and remove name... != None, KeyErrors... no idea. Wish i'd started sooner as i've spent hours on something I could have just asked about in chat two days ago..
+ 
+def find_pet_by_name(pet_shop, name):
     for pet in (pet_shop['pets']):
         if pet['name'] == name:
-            return pet.get(name, None)
+            # print(pet)
+            return name
     else:
         return None            
-        
-def remove_pet_by_name(pet_shop,name):
+
+def remove_pet_by_name(pet_shop, name):          
+    # for pet in pet_shop['pets']:
+    #     if pet['name'] == name:
+    #         del pet['name']
+    index = 0
     for pet in pet_shop['pets']:
         if pet['name'] == name:
-            del pet
-            
+            # print(pet)
+            del pet_shop['pets'][index]
+        else:
+            index += 1
+#fucking index... omfg
+
+# print(pet_shop['pets'][3])
+# find_pet_by_name(pet_shop, 'Arthur')
+# remove_pet_by_name(pet_shop, "Arthur")
+# find_pet_by_name(pet_shop, "Arthur")
+# print(pet_shop['pets'][3])
 
 def add_pet_to_stock(pet_shop, stock):
     pet_shop['pets'].append(stock)
@@ -144,5 +160,10 @@ def add_pet_to_customer(customer, pet):
     customer["pets"].append(pet)
 
     # --- OPTIONAL ---
+
+def customer_can_afford_pet(customer, pet):
+    if customer['cash'] >= pet['price']:
+        return True
+    else:
+        return False
     
-  
