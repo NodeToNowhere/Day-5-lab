@@ -83,13 +83,23 @@ def add_or_remove_cash(pet_shop, cash):
         pet_shop['admin']['total_cash'] += cash
     return pet_shop['admin']['total_cash']
 
-print(add_or_remove_cash(pet_shop,10))
+
 
 def add_or_remove_cash(pet_shop, cash):
     if pet_shop['admin']['total_cash'] >= 0:
         pet_shop['admin']['total_cash'] += cash
+    elif pet_shop['admin']['total_cash'] <= 0:
+        pet_shop['admin']['total_cash'] -= cash    
     return pet_shop['admin']['total_cash']
 
+print(add_or_remove_cash(pet_shop,10))
 
+def get_pets_sold(pet_shop):
+    return pet_shop['admin']['pets_sold']
 
+print(get_pets_sold(pet_shop))
+
+def increase_pets_sold(pet_shop, sold):
+    pet_shop['admin']['pets_sold'] += sold
+    return pet_shop['admin']['pets_sold']
     
