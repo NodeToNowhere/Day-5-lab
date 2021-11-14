@@ -166,4 +166,5 @@ def customer_can_afford_pet(customer, pet):
         return True
     else:
         return False
+
     
