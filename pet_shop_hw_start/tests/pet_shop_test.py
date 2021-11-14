@@ -125,7 +125,7 @@ class TestPetShop(unittest.TestCase):
     
     def test_find_pet_by_name__returns_pet(self): 
         pet = find_pet_by_name(self.cc_pet_shop, "Arthur")
-        self.assertEqual("Arthur", pet) #had to edit pet['name'] - i'm sure that was the intention right.. 
+        self.assertEqual("Arthur", pet) #had to edit pet['name'] - i'm not sure if...
 
     
     def test_find_pet_by_name__returns_None(self):
@@ -135,16 +135,16 @@ class TestPetShop(unittest.TestCase):
     
     def test_remove_pet_by_name(self):
         remove_pet_by_name(self.cc_pet_shop, "Arthur")
-        pet = find_pet_by_name(self.cc_pet_shop,"Arthur")
+        pet = find_pet_by_name(self.cc_pet_shop,remove_pet_by_name) 
         self.assertIsNone(pet)
 
-    @unittest.skip("delete this line to run the test")
+    
     def test_add_pet_to_stock(self):
         add_pet_to_stock(self.cc_pet_shop, self.new_pet)
         count = get_stock_count(self.cc_pet_shop)
         self.assertEqual(7, count)
 
-    @unittest.skip("delete this line to run the test")
+    
     def test_customer_cash(self):
         cash = get_customer_cash(self.customers[0])
         self.assertEqual(1000, cash)

@@ -115,10 +115,22 @@ def get_pets_by_breed(pet_shop, breed):
 
 def find_pet_by_name(pet_shop, name):
     for pet in (pet_shop['pets']):
-        if pet['name'] == name:       
+        if pet['name'] == name:  
+            # print(pet['name'])     
             return pet['name']
-            print(pet['name'])
     else:
         return None    
         
-print(find_pet_by_name(pet_shop, "Arthur"))
+def remove_pet_by_name(pet_shop,name):
+    for pet in (pet_shop['pets']):
+        if pet['name'] == name:  
+            # print(pet['name'])
+            del pet     
+            
+            
+# find_pet_by_name(pet_shop,"Arthur")
+# print(remove_pet_by_name(pet_shop,"Arthur"))  
+
+def add_pet_to_stock(pet_shop, stock):
+    pet_shop['pets'].append(stock)
+   
