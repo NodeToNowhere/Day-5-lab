@@ -2,7 +2,7 @@
 
 #Also using AREPL in VScode, so had to write some data in file. Could probably import data but not sure how within the unit test and 'self' jargon. 
 
-pet_shop_list = [
+customers = [
             {
                 "name": "Alice",
                 "pets": [],
@@ -92,14 +92,32 @@ def add_or_remove_cash(pet_shop, cash):
         pet_shop['admin']['total_cash'] -= cash    
     return pet_shop['admin']['total_cash']
 
-print(add_or_remove_cash(pet_shop,10))
 
 def get_pets_sold(pet_shop):
     return pet_shop['admin']['pets_sold']
 
-print(get_pets_sold(pet_shop))
 
 def increase_pets_sold(pet_shop, sold):
     pet_shop['admin']['pets_sold'] += sold
     return pet_shop['admin']['pets_sold']
     
+def get_stock_count(pet_shop):
+    # stock = 0
+    # for pets in pet_shop["pets"]:
+    #     stock += 1
+    # return stock
+    return len(pet_shop['pets']) 
+
+def get_pets_by_breed(pet_shop, breed):
+    pets = []
+    for animals in (pet_shop['pets']):
+        if animals['breed'] == breed:
+            pets.append(breed)
+    return pets
+
+def get_pets_by_breed(pet_shop, breed):
+    pets = []
+    for animals in (pet_shop['pets']):
+        if animals['breed'] == breed:
+            pets.append(breed)
+    return pets
