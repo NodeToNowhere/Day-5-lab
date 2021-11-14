@@ -125,8 +125,7 @@ class TestPetShop(unittest.TestCase):
     
     def test_find_pet_by_name__returns_pet(self): 
         pet = find_pet_by_name(self.cc_pet_shop, "Arthur")
-        self.assertEqual("Arthur", pet) #had to edit pet['name'] - i'm not sure if...
-
+        self.assertEqual("Arthur", pet) #pets['name'] throwing TyperError
     
     def test_find_pet_by_name__returns_None(self):
         pet = find_pet_by_name(self.cc_pet_shop, "Fred")
@@ -135,7 +134,7 @@ class TestPetShop(unittest.TestCase):
     
     def test_remove_pet_by_name(self):
         remove_pet_by_name(self.cc_pet_shop, "Arthur")
-        pet = find_pet_by_name(self.cc_pet_shop,remove_pet_by_name) 
+        pet = find_pet_by_name(self.cc_pet_shop,"Arthur") 
         self.assertIsNone(pet)
 
     

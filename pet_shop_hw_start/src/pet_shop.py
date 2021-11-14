@@ -113,17 +113,18 @@ def get_pets_by_breed(pet_shop, breed):
             pets.append(breed)
     return pets
 
-def find_pet_by_name(pet_shop, name):
+def find_pet_by_name(pet_shop, name):  #This is driving me insane. I keep getting all kinds of errors trying to return None.... Hours... fml 
     for pet in (pet_shop['pets']):
-        if pet['name'] == name:       
-            return pet['name']
+        if pet['name'] == name:
+            return pet.get(name, None)
     else:
-        return None    
+        return None            
         
 def remove_pet_by_name(pet_shop,name):
-    for pet in (pet_shop['pets']):
-        if pet['name'] == name:  
-            del pet     
+    for pet in pet_shop['pets']:
+        if pet['name'] == name:
+            del pet
+            
 
 def add_pet_to_stock(pet_shop, stock):
     pet_shop['pets'].append(stock)
@@ -142,4 +143,6 @@ def get_customer_pet_count(customer):
 def add_pet_to_customer(customer, pet):
     customer["pets"].append(pet)
 
+    # --- OPTIONAL ---
     
+  
