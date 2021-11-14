@@ -2,6 +2,17 @@
 
 #Also using AREPL in VScode, so had to write some data in file. Could probably import data but not sure how within the unit test and 'self' jargon. 
 
+#ask about consistently storing local vars and using them to return output. Better to be specific? 
+
+#ex 
+# def get_pets_sold(pet_shop):
+#     return pet_shop['admin']['pets_sold']
+
+# def get_pets_sold(pet_shop):
+#     sold = 0
+#     sold += pet_shop['admin']['pets_sold'] 
+#     return sold
+
 customers = [
             {
                 "name": "Alice",
@@ -78,18 +89,9 @@ def get_pet_shop_name(pet_shop):
 def get_total_cash(pet_shop):
     return pet_shop["admin"]["total_cash"]
 
-def add_or_remove_cash(pet_shop, cash):
-    if pet_shop['admin']['total_cash'] >= 0:
-        pet_shop['admin']['total_cash'] += cash
-    return pet_shop['admin']['total_cash']
 
-
-
-def add_or_remove_cash(pet_shop, cash):
-    if pet_shop['admin']['total_cash'] >= 0:
-        pet_shop['admin']['total_cash'] += cash
-    elif pet_shop['admin']['total_cash'] <= 0:
-        pet_shop['admin']['total_cash'] -= cash    
+def add_or_remove_cash(pet_shop, cash):  
+    pet_shop['admin']['total_cash'] += cash
     return pet_shop['admin']['total_cash']
 
 
@@ -102,10 +104,6 @@ def increase_pets_sold(pet_shop, sold):
     return pet_shop['admin']['pets_sold']
     
 def get_stock_count(pet_shop):
-    # stock = 0
-    # for pets in pet_shop["pets"]:
-    #     stock += 1
-    # return stock
     return len(pet_shop['pets']) 
 
 def get_pets_by_breed(pet_shop, breed):
@@ -115,9 +113,12 @@ def get_pets_by_breed(pet_shop, breed):
             pets.append(breed)
     return pets
 
-def get_pets_by_breed(pet_shop, breed):
-    pets = []
-    for animals in (pet_shop['pets']):
-        if animals['breed'] == breed:
-            pets.append(breed)
-    return pets
+def find_pet_by_name(pet_shop, name):
+    for pet in (pet_shop['pets']):
+        if pet['name'] == name:       
+            return pet['name']
+            print(pet['name'])
+    else:
+        return None    
+        
+print(find_pet_by_name(pet_shop, "Arthur"))
