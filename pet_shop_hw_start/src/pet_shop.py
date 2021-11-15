@@ -112,7 +112,7 @@ def get_pets_by_breed(pet_shop, breed):
             pets.append(breed)
     return pets
 
- #hours and hours of issues with find and remove name... != None, KeyErrors... no idea. Wish i'd started sooner as i've spent hours on something I could have just asked about in chat two days ago..
+ #hours and hours of issues with find and remove name... != None, KeyErrors... no idea. Wish i'd started sooner as i've spent hours on something I could have just asked about in chat two days ago.. 
  
 def find_pet_by_name(pet_shop, name):
     for pet in (pet_shop['pets']):
@@ -121,7 +121,7 @@ def find_pet_by_name(pet_shop, name):
     else:
         return None            
 
-def remove_pet_by_name(pet_shop, name):         
+def remove_pet_by_name(pet_shop, name):          
     index = 0
     for pet in pet_shop['pets']:
         if pet['name'] == name:
@@ -146,6 +146,7 @@ def get_customer_cash(customer):
 def remove_customer_cash(customer, cost):
     customer['cash'] -= cost
 
+remove_customer_cash(customers[0], 500)
 
 def get_customer_pet_count(customer):
     return len(customer['pets'])
@@ -166,8 +167,8 @@ def sell_pet_to_customer(pet_shop, pet, customer):
     add_pet_to_customer(customer, pet)
     increase_pets_sold(pet_shop, 1)
     add_or_remove_cash(pet_shop, 900)
-    remove_customer_cash(pet_shop, 900)
+    remove_customer_cash(customer, 900)
     get_total_cash(pet_shop)
-# customer = customers[0]  
-# print(sell_pet_to_customer(pet_shop, find_pet_by_name(pet_shop, "Arthur"),customers[0]))
+
+#ahhhh not enough time, need sleep. 
     
